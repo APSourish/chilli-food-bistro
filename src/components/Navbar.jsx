@@ -34,10 +34,10 @@ const Navbar = ({ navigateTo, currentPage }) => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div 
-            className="flex items-center cursor-pointer rounded-full h-[80px] w-[80px] overflow-hidden border" 
+            className="flex items-center cursor-pointer rounded-full h-15 w-[150px]" 
             onClick={() => navigateTo('home')}
           >
-            <img src={logo} className='' />
+            <img src={logo} className='h-[80px]' />
           </div>
           
           {/* Desktop Navigation */}
