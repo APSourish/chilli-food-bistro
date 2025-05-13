@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 import { Menu, X, ShoppingCart, ChefHat } from 'lucide-react';
+import logo from '../assets/logo.svg'
 
 const Navbar = ({ navigateTo, currentPage }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { toggleCart, cartItems } = useCart();
   
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
   
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolled(window.scrollY > -10);
+  //   };
     
-    window.addEventListener('scroll', handleScroll);
+  //   window.addEventListener('scroll', handleScroll);
     
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
   
   return (
     <header 
@@ -33,28 +34,16 @@ const Navbar = ({ navigateTo, currentPage }) => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div 
-            className="flex items-center cursor-pointer" 
+            className="flex items-center cursor-pointer rounded-full h-[80px] w-[80px] overflow-hidden border" 
             onClick={() => navigateTo('home')}
           >
-            <div className="text-primary mr-2">
-              <ChefHat size={28} />
-            </div>
-            <div>
-              <h1 className={`font-display font-bold text-xl md:text-2xl ${
-                isScrolled || currentPage !== 'home' ? 'text-primary' : 'text-white'
-              }`}>
-                Chili Food <span className="text-secondary">Bistro</span>
-              </h1>
-              <p className={`text-xs ${
-                isScrolled || currentPage !== 'home' ? 'text-gray-600' : 'text-gray-200'
-              }`}>PURE VEGETARIAN</p>
-            </div>
+            <img src={logo} className='' />
           </div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a 
-              className={`nav-link ${currentPage === 'home' ? 'active' : ''} ${
+              className={`nav-link cursor-pointer ${currentPage === 'home' ? 'active' : ''} ${
                 isScrolled || currentPage !== 'home' ? 'text-gray-800' : 'text-white'
               }`}
               onClick={() => navigateTo('home')}
@@ -62,7 +51,7 @@ const Navbar = ({ navigateTo, currentPage }) => {
               Home
             </a>
             <a 
-              className={`nav-link ${currentPage === 'menu' ? 'active' : ''} ${
+              className={`nav-link cursor-pointer ${currentPage === 'menu' ? 'active' : ''} ${
                 isScrolled || currentPage !== 'home' ? 'text-gray-800' : 'text-white'
               }`}
               onClick={() => navigateTo('menu')}
@@ -70,16 +59,18 @@ const Navbar = ({ navigateTo, currentPage }) => {
               Menu
             </a>
             <a 
-              className={`nav-link ${
+              className={`nav-link cursor-pointer ${currentPage === 'about' ? 'active' : ''} ${
                 isScrolled || currentPage !== 'home' ? 'text-gray-800' : 'text-white'
               }`}
+              onClick={()=>navigateTo('about')}
             >
               About
             </a>
             <a 
-              className={`nav-link ${
+              className={`nav-link cursor-pointer ${currentPage === 'contact' ? 'active' : ''} ${
                 isScrolled || currentPage !== 'home' ? 'text-gray-800' : 'text-white'
               }`}
+              onClick={()=>navigateTo('contact')}
             >
               Contact
             </a>

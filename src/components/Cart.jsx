@@ -50,7 +50,7 @@ export const CartDrawer = () => {
     }
 
     if (!validatePincode(checkoutForm.pincode)) {
-      setCheckoutError('Sorry, delivery is not available in your area. We only deliver within 15km radius of 360003.');
+      setCheckoutError('Sorry, delivery is not available in your area.');
       return;
     }
 

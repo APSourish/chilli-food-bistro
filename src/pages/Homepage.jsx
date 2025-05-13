@@ -6,7 +6,7 @@ const Homepage = ({ navigateTo }) => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-hero-pattern bg-cover bg-center h-[90vh] flex items-center">
+      <section className="bg-hero-pattern bg-cover bg-center h-[100vh] flex items-center">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl text-white">
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
@@ -22,7 +22,9 @@ const Homepage = ({ navigateTo }) => {
               >
                 Order Now <ShoppingBag size={18} className="ml-2" />
               </button>
-              <button className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300">
+              <button 
+              onClick={() => navigateTo('menu')}
+              className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300">
                 View Our Menu
               </button>
             </div>

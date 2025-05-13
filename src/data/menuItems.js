@@ -35,7 +35,7 @@ export const menuItems = [
     category: 'punjabi',
     price: 210,
     description: 'Marinated and grilled paneer cubes in a spicy tomato-based sauce.',
-    image: 'https://images.pexels.com/photos/14727369/pexels-photo-14727369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://i.pinimg.com/736x/80/f1/1d/80f11dbdc2a4f9d189185999ca8cf55e.jpg',
     popular: true
   },
   {
@@ -93,7 +93,7 @@ export const menuItems = [
     category: 'special',
     price: 230,
     description: 'Soft cottage cheese dumplings in a creamy, mildly sweet gravy.',
-    image: 'https://images.pexels.com/photos/5410428/pexels-photo-5410428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://i.pinimg.com/736x/15/f1/f3/15f1f3a8eea35d28c1f64140eed9069b.jpg',
     popular: true
   },
   
