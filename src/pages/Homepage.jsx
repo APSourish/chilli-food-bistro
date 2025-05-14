@@ -1,39 +1,60 @@
 import React from 'react';
 import { ArrowRight, Star, Clock, ShoppingBag } from 'lucide-react';
 import FeaturedMenu from '../components/FeaturedMenu';
+import fireVideo from '../assets/fire.mp4';
+import bgImage from '../assets/veg.jpg';
 
 const Homepage = ({ navigateTo }) => {
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="bg-hero-pattern bg-cover bg-center h-[100vh] flex items-center">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl text-white">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-              Experience Authentic <span className="text-primary">Indian</span> Vegetarian Cuisine
-            </h1>
-            <p className="text-lg md:text-xl mb-8 text-gray-100">
-              Discover the rich flavors and spices of traditional Indian dishes, crafted with care using fresh ingredients.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                className="bg-primary hover:bg-primary-dark text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center"
-                onClick={() => navigateTo('menu')}
-              >
-                Order Now <ShoppingBag size={18} className="ml-2" />
-              </button>
-              <button 
-              onClick={() => navigateTo('menu')}
-              className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300">
-                View Our Menu
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="bg-hero-pattern bg-cover bg-center h-[100vh] flex items-center relative overflow-hidden">
+  {/* Image Background */}
+  <div className="absolute inset-0 z-0">
+    <div className="w-full h-full bg-hero-pattern bg-cover bg-center"></div> {/* Image as background */}
+  </div>
+
+  {/* Video Background - positioned above the image but behind content */}
+  <div className="absolute inset-0 z-10">
+    <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full md:w-5xl absolute h-[230vh] object-cover lg:rotate-90 md:rotate-90 sm:rotate-0 opacity-50 -translate-y-1/4 md:-translate-y-1/3 lg:-translate-y-1/4"
+  >
+    <source src={fireVideo} type="video/mp4" />
+  </video>
+  </div>
+        
+  {/* Hero Content */}
+  <div className="container mx-auto px-4 relative z-30">
+    <div className="max-w-2xl text-white">
+      <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+        Experience Authentic <span className="text-primary">Indian</span> Vegetarian Cuisine
+      </h1>
+      <p className="text-lg md:text-xl mb-8 text-gray-100">
+        Discover the rich flavors and spices of traditional Indian dishes, crafted with care using fresh ingredients.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4">
+        <button
+          className="bg-primary hover:bg-primary-dark text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center"
+          onClick={() => navigateTo('menu')}
+        >
+          Order Now <ShoppingBag size={18} className="ml-2" />
+        </button>
+        <button
+          onClick={() => navigateTo('menu')}
+          className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300">
+          View Our Menu
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Features Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[url('../veg.jpg')] bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100 hover:border-primary transition-colors duration-300">
@@ -45,7 +66,7 @@ const Homepage = ({ navigateTo }) => {
                 Experience the true flavors of Indian cuisine with our traditional recipes passed down through generations.
               </p>
             </div>
-            
+
             <div className="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100 hover:border-primary transition-colors duration-300">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Clock className="text-primary" />
@@ -55,7 +76,7 @@ const Homepage = ({ navigateTo }) => {
                 Enjoy our delicious meals delivered hot and fresh to your doorstep in less than 30 minutes.
               </p>
             </div>
-            
+
             <div className="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100 hover:border-primary transition-colors duration-300">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <div className="text-secondary">
@@ -84,11 +105,11 @@ const Homepage = ({ navigateTo }) => {
               Explore our most loved dishes that have won the hearts of our customers. Each dish is crafted with passion and authentic spices.
             </p>
           </div>
-          
+
           <FeaturedMenu />
-          
+
           <div className="text-center mt-12">
-            <button 
+            <button
               className="flex items-center mx-auto bg-white border border-primary text-primary hover:bg-primary hover:text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300"
               onClick={() => navigateTo('menu')}
             >
@@ -109,7 +130,7 @@ const Homepage = ({ navigateTo }) => {
               Read what our satisfied customers have to say about their dining experience at Chili Food Bistro.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[1, 2, 3].map((item) => (
               <div key={item} className="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
@@ -145,7 +166,7 @@ const Homepage = ({ navigateTo }) => {
           <p className="text-white/90 max-w-2xl mx-auto mb-8 text-lg">
             Order now and experience the authentic taste of Indian vegetarian cuisine delivered to your doorstep.
           </p>
-          <button 
+          <button
             className="bg-white text-primary hover:bg-gray-100 py-3 px-8 rounded-lg font-semibold text-lg transition-colors duration-300"
             onClick={() => navigateTo('menu')}
           >
